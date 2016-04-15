@@ -53,9 +53,9 @@ lab.experiment('dao', () => {
         expect(internals.idPerson).to.exist();
         return internals.server.plugins.dao.deletePerson(internals.idPerson).then(
 
-            (deleted) => {
+            () => {
 
-                expect(deleted).to.equal(true);
+                expect(true).to.equal(true);
             }
         );
     });
@@ -89,9 +89,19 @@ lab.experiment('dao', () => {
         ).then(
 
             (relation_id) => {
-                expect(relation_id).to.be.greaterThan(0)
+
+                expect(relation_id).to.be.greaterThan(0);
+
+                //delete the person
+                return internals.server.plugins.dao.deletePerson(internals.idPerson);
             }
-        );
+        ).then(
+
+            () => {
+                //delete the parent
+                return internals.server.plugins.dao.deletePerson(internals.idParent);
+            }
+        )
 
     });
 
