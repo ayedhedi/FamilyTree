@@ -1,0 +1,36 @@
+{
+  "name": "family-tree-api",
+  "version": "0.0.1",
+  "description": "Family Tree Api using Neo4j and Node js ",
+  "main": "index.js",
+  "scripts": {
+    "test": "lab -a code -t 100 -L -v",
+    "test-cov-html": "lab -a code -L -r html -o coverage.html",
+    "start": "node lib/start.js"
+  },
+  "author": "Hedi Ayed",
+  "license": "ISC",
+  "keywords": [
+    "hapi",
+    "node",
+    "neo4j",
+    "familytree"
+  ],
+  "dependencies": {
+    "async": "^1.5.2",
+    "glue": "3.x.x",
+    "hapi": "13.x.x",
+    "hoek": "^3.0.4",
+    "joi": "^8.0.5",
+    "moment": "^2.12.0",
+    "node-config-manager": "^1.0.4",
+    "q": "^1.4.1",
+    "seraph": "^0.14.2"
+  },
+  "devDependencies": {
+    "code": "2.x.x",
+    "dreamjs": "^0.1.5",
+    "lab": "^10.3.1",
+    "randexp": "^0.4.2"
+  }
+}

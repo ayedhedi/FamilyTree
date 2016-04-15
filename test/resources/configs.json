@@ -1,0 +1,5 @@
+{
+  "dbServer": "http://localhost:7474",
+  "dbUser": "neo4j",
+  "dbPass": "pw4neo4j"
+}
