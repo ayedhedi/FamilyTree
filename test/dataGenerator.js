@@ -54,8 +54,8 @@ exports.validPerson = () => {
 
 
 internals.birthDateFix = () => {
-    let min = Moment(Configs.personBirthDateMin, Configs.personBirthDateFormat);
-    let max = Moment();
+    let min = Moment(Configs.personBirthDateMin, Configs.personBirthDateFormat).millisecond();;
+    let max = Moment().millisecond();
     let ret = Math.floor((Math.random() * (max -min)) + min);
 
     return {
@@ -66,7 +66,7 @@ internals.birthDateFix = () => {
 internals.birthDatePlage = () => {
     let min = Moment(Configs.personBirthDateMin, Configs.personBirthDateFormat).year();
     let max = Moment().year() - 1;
-    let fromYear = Math.floor(Math.random() * (max - min)) + min;
+    let fromYear = Math.floor(Math.random() * (max - min)) + min - 1 ;
     let toYear = Math.floor(Math.random() * (max + 1 - fromYear)) + fromYear;
     return {
         fromYear: fromYear,
