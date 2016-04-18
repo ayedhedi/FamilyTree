@@ -160,7 +160,6 @@ lab.experiment('dao', () => {
 
     });
 
-
     lab.test('fails to create parents; should respect max number of parents (rule -12)', () => {
 
         //the first will be the person and the rest as parent (wich is not acceptable)
@@ -242,8 +241,6 @@ lab.experiment('dao', () => {
         );
 
     });
-
-
 
     lab.test('successfully creates a partner relation ', () => {
 
@@ -380,7 +377,6 @@ lab.experiment('dao', () => {
         );
 
     });
-
 
     //stop the server
     lab.after((done) => {
