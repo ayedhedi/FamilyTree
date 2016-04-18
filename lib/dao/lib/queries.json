@@ -1,5 +1,0 @@
-{
-  "personDataRelation": "start p=node({id}) match (p)-[r]->(n) where type(r) IN ['born_in', 'born_on', 'dead_on'] return n",
-  "personParents": "start p=node({id}) match (p)-[r]->(n) where type(r) IN ['child_of'] return n",
-  "personPartners": "start p=node({id}) match (p)-[r]->(n) where type(r) IN ['partner_of'] return n"
-}
