@@ -1,4 +1,11 @@
 {
-  "maxParents": 2,
-  "maxPartners": 0
+  "maxParents": 3,
+  "maxPartners": 0,
+  "forbeddenParent": [
+    "grandParents", "childrens", "grandchildrens", "spouses", "siblings", "uncles", "aunts","cousins","nephews","nieces",
+     "siblingsInLaw", "daughtersInLaw", "sonsInLaw", "fathersInLaw", "mothersInLaw"
+  ],
+  "forbeddenPartner":[
+    "grandParents", "childrens", "grandchildrens", "spouses", "siblings", "daughtersInLaw", "sonsInLaw", "fathersInLaw", "mothersInLaw"
+  ]
 }

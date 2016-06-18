@@ -293,7 +293,7 @@ lab.experiment('relations', () => {
 
     lab.test('aunts', () => {
 
-        //C is the unique anut of F and M has no aunt
+        //C is the unique aunt of F and M has no aunt
         return internals.dao.getRelation('aunts', internals.persons['F'].id).then(
 
             (aunts) => {
@@ -549,7 +549,7 @@ lab.experiment('relations', () => {
 
     lab.test('mothersInLaw', () => {
 
-        //K is the father-In-Law of C
+        //K is the mother-In-Law of C
         return internals.dao.getRelation('mothersInLaw', internals.persons['C'].id).then(
 
             (mothersInLaw) => {
@@ -573,7 +573,8 @@ lab.experiment('relations', () => {
 
             funcTab.push(internals.dao.deletePerson(person.id));
         });
-        Q.allSettled(funcTab).then(
+
+        Promise.all(funcTab).then(
 
             () => {
                 internals.server.stop(done);
@@ -583,8 +584,6 @@ lab.experiment('relations', () => {
                 internals.server.stop(done);
             }
         );
-
-        //internals.server.stop(done);
     });
 
 

@@ -67,7 +67,7 @@ internals.birthDatePlage = () => {
     let min = Moment(Configs.personBirthDateMin, Configs.personBirthDateFormat).year();
     let max = Moment().year() - 1;
     let fromYear = Math.floor(Math.random() * (max - min)) + min - 1 ;
-    let toYear = Math.floor(Math.random() * (max + 1 - fromYear)) + fromYear;
+    let toYear = Math.floor(Math.random() * (max + 1 - fromYear)) + fromYear + 1;
     return {
         fromYear: fromYear,
         toYear: toYear

@@ -50,8 +50,8 @@ lab.experiment('dao', () => {
             }
         ).then(
             () => {},
-            () => {
-                Code.fail("Cannot delte person ");
+            (err) => {
+                Code.fail("Cannot delte person: "+err.message);
             }
         )
 
