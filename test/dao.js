@@ -37,7 +37,37 @@ lab.experiment('dao', () => {
     });
 
 
-    lab.test('save and delete a person ', () => {
+    lab.test('dont save an invalid person', () => {
+
+        const person = Generator.validPerson();
+        //add a property
+        person._invalid = 0;
+        return internals.server.plugins.dao.savePerson(person).then(
+
+            (_person) => {
+                Code.fail("Should not save an invalid person !! try to delete it");
+                return internals.daoPlugin.deletePerson(_person.id);
+            },
+            (err) => {
+                expect(err).exist();
+                //check that the person is not saved in DB
+                return internals.server.plugins.dao.findPersonFirstName(person.firstName).then(
+
+                    (persons) => {
+                        if (persons.length > 0){
+                            Code.fail('Should not save the person')
+                        }
+                    },
+                    (err) => {
+                        console.log("Error: "+err);
+                    }
+                )
+            }
+        );
+    });
+
+
+    lab.test('save and delete a valid person ', () => {
 
         const person = Generator.validPerson();
         return internals.server.plugins.dao.savePerson(person).then(
@@ -51,7 +81,7 @@ lab.experiment('dao', () => {
         ).then(
             () => {},
             (err) => {
-                Code.fail("Cannot delte person: "+err.message);
+                Code.fail("Cannot delete person: "+err.message);
             }
         )
 

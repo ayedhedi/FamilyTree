@@ -25,7 +25,7 @@ describe('validate input person ', () => {
         let person = Generator.validPerson();
         //console.log("Person = "+JSON.stringify(person));
 
-        Validator.validateInputPerson(person, {}, (err) => {
+        Validator.validatePerson(person, {}, (err) => {
 
             expect(err).to.not.exist();
         });
@@ -41,7 +41,7 @@ describe('validate input person ', () => {
 
                 let person = Generator.validPerson();
                 person.firstName = '';
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -55,7 +55,7 @@ describe('validate input person ', () => {
 
                 let person = Generator.validPerson();
                 person.firstName = undefined;
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -77,7 +77,7 @@ describe('validate input person ', () => {
 
                 let person = Generator.validPerson();
                 person.lastName = '';
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -91,7 +91,7 @@ describe('validate input person ', () => {
 
                     let person = Generator.validPerson();
                     person.lastName = undefined;
-                    Validator.validateInputPerson(person, {}, (err) => {
+                    Validator.validatePerson(person, {}, (err) => {
 
                         expect(err).to.exist();
                         expect(err.details).to.be.array();
@@ -112,7 +112,7 @@ describe('validate input person ', () => {
             (end) => {
                 let person = Generator.validPerson();
                 person.gender = '';
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -124,7 +124,7 @@ describe('validate input person ', () => {
             (end) => {
                 let person = Generator.validPerson();
                 person.gender = 'MALE';
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -148,7 +148,7 @@ describe('validate input person ', () => {
 
                 let person = Generator.validPerson();
                 person.dateOfBirth = '';
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -162,7 +162,7 @@ describe('validate input person ', () => {
                 let date = Moment(Configs.personBirthDateMin, Configs.personBirthDateFormat).subtract(1, 'seconds').format(Configs.personBirthDateFormat);
                 let person = Generator.validPerson();
                 person.dateOfBirth = date;
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -176,7 +176,7 @@ describe('validate input person ', () => {
                 let date = Moment().add(1, 'd').format(Configs.personBirthDateFormat);
                 let person = Generator.validPerson();
                 person.dateOfBirth = date;
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -193,7 +193,7 @@ describe('validate input person ', () => {
                 };
                 let person = Generator.validPerson();
                 person.dateOfBirth = date;
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -210,7 +210,7 @@ describe('validate input person ', () => {
                 };
                 let person = Generator.validPerson();
                 person.dateOfBirth = date;
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -227,7 +227,7 @@ describe('validate input person ', () => {
                 };
                 let person = Generator.validPerson();
                 person.dateOfBirth = date;
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     expect(err).to.exist();
                     expect(err.details).to.be.array();
@@ -253,7 +253,7 @@ describe('validate input person ', () => {
                     latitude: 1.6870129108428955
                 };
 
-                Validator.validateInputPerson(person, {}, (err) => {
+                Validator.validatePerson(person, {}, (err) => {
 
                     //console.log(err.details[0].message);
                     expect(err).to.exist();
